@@ -29,9 +29,9 @@ def loadim(arr, title, x, y, num):
 # prepare image
 prep = ImPrep()
 
-img = prep.loadpic("elements.jpg")
- 
-resized = prep.resizePic(img, 10)
+img = prep.loadpic("download.jpeg")
+
+resized = prep.resizePic(img, 128/len(img[0]) * 100 )
 
 newIm = prep.processForColorBGR(resized)
 
@@ -59,9 +59,11 @@ derivative = proc.imgDerivative(demag_spec)
 # get those maxes
 maxer = ImMaxer()
 
-selectedMaxes = maxer.maxValues(derivative, demag_spec, 4, 20) # optimal threshold and number depends on image conditions
+selectedMaxes = maxer.maxValues(derivative, demag_spec, 4, 20) # optimal threshold and number depends on image conditions (haha 420)
+selectedMaxes = maxer.noDupes(selectedMaxes, 1) # distance depends on other factors
 
 emt=maxer.createMaxesImage(newIm, selectedMaxes)
+
 
 #draw images
 

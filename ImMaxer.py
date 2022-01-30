@@ -1,4 +1,3 @@
-import imp
 import math
 import heapq
 
@@ -51,4 +50,16 @@ class ImMaxer:
         for i in selectedMaxes:
             emt[i[1]][i[0]] = 255
         return emt
+
+    def noDupes(self, selectedMaxes, distance):
+        for targetMax in selectedMaxes:
+            for otherMaxes in selectedMaxes:
+                if targetMax == otherMaxes: continue
+
+                if abs(targetMax[0]-otherMaxes[0]) <= distance or abs(targetMax[1]-otherMaxes[1]) <= distance:
+                    selectedMaxes.remove(otherMaxes)
+                    
+        return selectedMaxes
+                    
+                
         
