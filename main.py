@@ -29,7 +29,7 @@ def loadim(arr, title, x, y, num):
 # prepare image
 prep = ImPrep()
 
-img = prep.loadpic("download.jpeg")
+img = prep.loadpic("elements.jpg")
 
 resized = prep.resizePic(img, 128/len(img[0]) * 100 )
 
